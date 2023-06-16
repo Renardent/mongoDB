@@ -11,7 +11,7 @@ app.get('/:saladId');
 app.patch('/:saladId');
 app.delete('/:saladId');
 
-app.use(errorHandler);
 
+app.use(errorHandler);
 
 module.exports = app;

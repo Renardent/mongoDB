@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
-const {Schema} = mongoose;
+const { Schema } = mongoose;
 const DB = process.env.DB_NAME || 'fm-test';
 
-mongoose.connect(`mongodb://127.0.0.1:27017/${DB}`)
+mongoose.connect(`mongodb://localhost:27017/${DB}`)
 .catch(err => {
     console.log('connect failed');
     next(err);
@@ -24,7 +24,6 @@ const saladSchema = new Schema({
     spicy: Boolean,
     expired: {
         type: Date,
-        required: true,
         validate: {
             validator: (v) => v > new Date(),
             message: 'Salad is expired!'
@@ -32,7 +31,8 @@ const saladSchema = new Schema({
     } 
 })
 
-const Salad = mongoose.model('Salad', saladSchema );
+
+const Salad = mongoose.model('Salad', saladSchema);
 
 
 module.exports = {

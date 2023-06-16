@@ -1,0 +1,8 @@
+PATCH http://localhost:5000/63aeb09f07d9d8a114de0ba4 HTTP/1.1
+Content-Type: application/json
+
+{    
+    "sauce": "mustard",
+    "dietType": "light",
+    "expired": "2023-01-02"
+}
