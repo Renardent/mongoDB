@@ -50,9 +50,9 @@ module.exports.deleteSalad = async (req, res,next) => {
         const {params: {saladId}} = req;
         const deleted = await Salad.findByIdAndDelete(saladId);
         if(!deleted) {
-            return res.status(400).send('There is no such salad');
+            return res.status(400).send('Or was deleted or something incorrect');
         }
-        res.status(200).send('Deleted', deleted);
+        res.status(200).send(deleted);
     }catch(error) {
         next(error)
     }
