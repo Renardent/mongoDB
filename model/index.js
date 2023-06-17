@@ -7,7 +7,6 @@ const DB = process.env.DB_NAME || 'fm-test';
 mongoose.connect(`mongodb://localhost:27017/${DB}`)
 .catch(err => {
     console.log('connect failed');
-    next(err);
     process.exit(1);
 })
 

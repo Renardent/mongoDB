@@ -2,10 +2,10 @@ POST http://localhost:5000/api/salads/ HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "Smth",
+    "name": "Tomato with pork",
     "weight": 2.0,
-    "ingredients": ["bread", "milk"],
-    "sauce": "none",
+    "ingredients": ["tomato", "pork"],
+    "sauce": "teriaki",
     "dietType": "none",
     "spicy": false,
     "expired": "2023-12-25"

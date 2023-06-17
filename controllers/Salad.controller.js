@@ -2,8 +2,8 @@ const {Salad} = require('../model');
 
 module.exports.createSalad = async (req, res, next) =>{
     try{
-        const {body} = req;
-        const salad = await Salad.create(body);
+        const {body, ingredients } = req;
+        const salad = await Salad.create({...body, ingredients});
         return res.status(201).send(salad);
     } catch(error) {
         next(error);
@@ -13,20 +13,19 @@ module.exports.createSalad = async (req, res, next) =>{
 module.exports.getSalad = async (req, res, next) => {
     try {
         const {params: {saladId}} = req;
-        const salad = await Salad.findById(saladId);
-        if(!salad) {
-            return res.status(400).send('There is no such salad');
-        }
+        const salad = await Salad.findById(saladId)
+                .populate('ingredients');
         return res.status(200).send(salad);
-    }catch(error) {
-        next(error)
+    } catch(error) {
+        next(error);
     }
 };
 
 module.exports.getAllSalads = async (req, res,next) => {
     try {
-        const salads = await Salad.find({});
-        return res.status(200).send(salads);
+        const salad = await Salad.find({})
+            .populate('ingredients');
+    return res.status(200).send(salad);
     }catch(error) {
         next(error)
     }

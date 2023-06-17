@@ -7,10 +7,12 @@ module.exports.findIngredient = async(req, res, next) => {
         for (let i = 0; i < ingredients.length; i++) {
             const ingr = await Ingredient.findOne({
                 name: ingredients[i]});
-                ingrs.push(ingr);
+                ingrs.push(ingr['_id']);
         }
+        console.log(ingrs);
         req.ingredients = ingrs;
+        next();
     } catch(error) {
-
+        next(error);
     }
 }
