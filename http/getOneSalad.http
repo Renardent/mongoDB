@@ -1,1 +1,1 @@
-GET http://localhost:5000/648ce358709dd03d14422838 HTTP/1.1
+GET http://localhost:5000/api/salads/648ce358709dd03d14422838 HTTP/1.1

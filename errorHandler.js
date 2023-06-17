@@ -1,4 +1,4 @@
-const {Error: {ValidationError,  CastError}} = require('mongoose');
+const {Error: {ValidationError,CastError}} = require('mongoose');
 
 module.exports.errorHandler = async (err, req, res, next) => {
     if (err instanceof ValidationError) {
